@@ -52,6 +52,8 @@ IEnumerator ResolveExpectedStream()
     timestamp_buffer = new double[buf_samples];
 }
 
+```
+
 ### 🧠 What This Code Does
 
 This snippet calculates the appropriate size for memory buffers that will be used to receive incoming LSL data. It first queries the stream for its declared sampling rate (`nominal_srate()`), which tells us how many samples per second the device is expected to send — for example, 250 Hz.
