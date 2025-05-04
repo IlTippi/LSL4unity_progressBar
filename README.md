@@ -19,14 +19,6 @@ It is intended to serve as a base or reference for more complex BCI-driven VR ap
 - LSL runtime installed
 - Optional: EEG/fNIRS hardware like Unicorn Hybrid Black
 
-## 🚀 Getting Started
-
-1. Clone or download this repository.
-2. Open it with Unity Hub.
-3. Make sure LSL4Unity is properly imported (via Unity Package Manager or manually).
-4. Plug in your device or run an LSL test stream.
-5. Attach the `SimpleInletScaleObject.cs` (or your modified script) to a 3D object.
-6. Play the scene and observe the scale/progress reacting to the stream.
 
 ## 📁 Project Structure
 
