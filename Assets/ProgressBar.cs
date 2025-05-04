@@ -23,6 +23,8 @@ namespace LSL4Unity.Samples.SimpleInlet
         // We need to find the stream somehow. You must provide a StreamName in editor or before this object is Started.
         public string StreamName;
 
+         private float updateInterval = 3.0f; // Esegui ogni 0.1 secondi (10 Hz)
+        private float nextUpdateTime = 0f;
         public int maximum = 1;
         public int minimum = 0;
 
@@ -66,9 +68,9 @@ namespace LSL4Unity.Samples.SimpleInlet
 
             inlet = new StreamInlet(results[0]);
 
-            // Prepare pull_chunk buffer
+            // Prepare pull_chunk buffer based on the rate(usually 250 hz) for the max duration that we want to sample each chunk
             int buf_samples = (int)Mathf.Ceil((float)(inlet.info().nominal_srate() * max_chunk_duration));
-            // Debug.Log("Allocating buffers to receive " + buf_samples + " samples.");
+            Debug.Log("Allocating buffers to receive " + buf_samples + " samples.");
             int n_channels = inlet.info().channel_count();
             data_buffer = new float[buf_samples, n_channels];
             timestamp_buffer = new double[buf_samples];
@@ -77,10 +79,12 @@ namespace LSL4Unity.Samples.SimpleInlet
         // Update is called once per frame
         void Update()
         {
+          if (Time.time >= nextUpdateTime){
+            nextUpdateTime = Time.time + updateInterval;
             if (inlet != null)
             {
                 int samples_returned = inlet.pull_chunk(data_buffer, timestamp_buffer);
-                //Debug.Log("Samples returned: " + samples_returned);
+                Debug.Log("Samples returned: " + samples_returned);
                 if (samples_returned > 0)
                 {
                     // There are many things you can do with the incoming chunk to make it more palatable for Unity.
@@ -99,6 +103,7 @@ namespace LSL4Unity.Samples.SimpleInlet
                     
                 }
             }
+          }  
         }
 
         void IncreaseFocus(float focus_to_increase){

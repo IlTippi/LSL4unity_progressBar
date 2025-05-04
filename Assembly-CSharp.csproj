@@ -62,6 +62,7 @@
     <Compile Include="Assets\Samples\labstreaminglayer for Unity\1.16.0\SimplePhysicsEventOutlet\SimpleOutletTriggerEvent.cs" />
     <Compile Include="Assets\Samples\labstreaminglayer for Unity\1.16.0\ComplexOutletInletEvent\PoseInlet.cs" />
     <Compile Include="Assets\ProgressBar.cs" />
+    <Compile Include="Assets\Example.cs" />
     <Compile Include="Assets\Samples\labstreaminglayer for Unity\1.16.0\SimpleInletScaleObject\DisplayFPS.cs" />
     <Compile Include="Assets\Samples\labstreaminglayer for Unity\1.16.0\ComplexOutletInletEvent\ChangePlaneColour.cs" />
     <Compile Include="Assets\Samples\labstreaminglayer for Unity\1.16.0\SimpleInletScaleObject\SimpleInletScaleObject.cs" />

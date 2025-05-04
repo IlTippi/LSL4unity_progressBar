@@ -27,6 +27,47 @@ It is intended to serve as a base or reference for more complex BCI-driven VR ap
 - `Assets/Prefabs/`: Reusable UI and 3D assets.
 - `Assets/Samples/`: LSL4Unity sample integration.
 
+
+## 📜 Code Snippet Explanation: LSL Buffer Allocation
+
+Below is an excerpt from the coroutine responsible for resolving the LSL stream and preparing memory buffers to receive data:
+
+```csharp
+IEnumerator ResolveExpectedStream()
+{
+    var results = resolver.results();
+    while (results.Length == 0)
+    {
+        yield return new WaitForSeconds(.1f);
+        results = resolver.results();
+    }
+
+    inlet = new StreamInlet(results[0]);
+
+    // Prepare pull_chunk buffer
+    int buf_samples = (int)Mathf.Ceil((float)(inlet.info().nominal_srate() * max_chunk_duration));
+    Debug.Log("Allocating buffers to receive " + buf_samples + " samples.");
+    int n_channels = inlet.info().channel_count();
+    data_buffer = new float[buf_samples, n_channels];
+    timestamp_buffer = new double[buf_samples];
+}
+
+```
+
+### 🧠 What This Code Does
+
+This snippet calculates the appropriate size for memory buffers that will be used to receive incoming LSL data. It first queries the stream for its declared sampling rate (`nominal_srate()`), which tells us how many samples per second the device is expected to send — for example, 250 Hz.
+
+A configurable variable, `max_chunk_duration`, defines the maximum duration (in seconds) that a chunk of data may cover — typically something like 0.1 seconds (100 milliseconds). By multiplying the sampling rate by this duration, we estimate the maximum number of samples we may receive at once. We use `Mathf.Ceil` to round this number up, ensuring the buffer is always large enough.
+
+Two buffers are then allocated:
+
+- `data_buffer`: a two-dimensional float array sized `[samples, channels]`, used to store the actual signal values coming from the LSL stream.
+- `timestamp_buffer`: a one-dimensional array used to store the time associated with each received sample.
+
+These buffers are essential for retrieving data efficiently using `inlet.pull_chunk()`, which allows multiple samples to be received at once — improving performance compared to pulling one sample at a time. This structure ensures the system remains responsive and reliable, especially in real-time BCI applications such as VR or neurofeedback training.
+
+
 ## 🤝 Contributing
 
 We encourage collaboration! Please:

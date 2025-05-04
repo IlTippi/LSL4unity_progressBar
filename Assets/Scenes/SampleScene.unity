@@ -226,6 +226,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf43b533d97eb384992c4109fa674c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FocusBar: {fileID: 357993732}
+  StreamName: AlphaWaves
+  maximum: 1
+  minimum: 0
+  FocusValue: 0
 --- !u!1 &652657152
 GameObject:
   m_ObjectHideFlags: 0
