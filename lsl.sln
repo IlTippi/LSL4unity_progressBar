@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{AC6591E5-494A-DB51-3F97-2452249E627E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "labstreaminglayer.LSL4Unity.Editor", "labstreaminglayer.LSL4Unity.Editor.csproj", "{4AF2BC44-6CF5-5390-632B-8472E1912620}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "labstreaminglayer.LSL4Unity.Runtime", "labstreaminglayer.LSL4Unity.Runtime.csproj", "{A1411100-0537-4075-DEB2-DBAE5B1BB3B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC6591E5-494A-DB51-3F97-2452249E627E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC6591E5-494A-DB51-3F97-2452249E627E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC6591E5-494A-DB51-3F97-2452249E627E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC6591E5-494A-DB51-3F97-2452249E627E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF2BC44-6CF5-5390-632B-8472E1912620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF2BC44-6CF5-5390-632B-8472E1912620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF2BC44-6CF5-5390-632B-8472E1912620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF2BC44-6CF5-5390-632B-8472E1912620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1411100-0537-4075-DEB2-DBAE5B1BB3B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1411100-0537-4075-DEB2-DBAE5B1BB3B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1411100-0537-4075-DEB2-DBAE5B1BB3B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1411100-0537-4075-DEB2-DBAE5B1BB3B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
